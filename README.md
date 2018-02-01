@@ -19,8 +19,8 @@ If you make advantage of the GAT model in your research, please cite the followi
 ```
 @article{
   velickovic2018graph,
-  title={Graph Attention Networks},
-  author={Petar Veli{\v{c}}kovi{\'{c}}, Guillem Cucurull, Arantxa Casanova, Adriana Romero, Pietro Li{\`{o}}, Yoshua Bengio},
+  title="{Graph Attention Networks}",
+  author={Veli{\v{c}}kovi{\'{c}}, Petar and Cucurull, Guillem and Casanova, Arantxa and Romero, Adriana and Li{\`{o}}, Pietro and Bengio, Yoshua},
   journal={International Conference on Learning Representations},
   year={2018},
   url={https://openreview.net/forum?id=rJXMpikCZ},
