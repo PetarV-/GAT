@@ -1,6 +1,10 @@
 # GAT
 Graph Attention Networks (Veličković *et al.*, ICLR 2018): [https://arxiv.org/abs/1710.10903](https://arxiv.org/abs/1710.10903)
 
+GAT layer            |  t-SNE + Attention coefficients on Cora
+:-------------------------:|:-------------------------:
+![](http://www.cl.cam.ac.uk/~pv273/images/gat.jpg)  |  ![](http://www.cl.cam.ac.uk/~pv273/images/gat_tsne.jpg)
+
 ## Overview
 Here we provide the implementation of a Graph Attention Network (GAT) layer in TensorFlow, along with a minimal execution example (on the Cora dataset). The repository is organised as follows:
 - `data/` contains the necessary dataset files for Cora;
