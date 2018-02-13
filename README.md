@@ -32,5 +32,7 @@ If you make advantage of the GAT model in your research, please cite the followi
 }
 ```
 
+You may also be interested in an unofficial [Keras port](https://github.com/danielegrattarola/keras-gat) of the GAT model, currently under development by [Daniele Grattarola](https://github.com/danielegrattarola).
+
 ## License
 MIT
