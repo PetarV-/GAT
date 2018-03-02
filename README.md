@@ -17,6 +17,17 @@ Here we provide the implementation of a Graph Attention Network (GAT) layer in T
 
 Finally, `execute_cora.py` puts all of the above together and may be used to execute a full training run on Cora.
 
+## Dependencies
+
+The script has been tested running under Python 3.5.2, with the following packages installed (along with their dependencies):
+
+- `numpy==1.14.1`
+- `scipy==1.0.0`
+- `networkx==2.1`
+- `tensorflow-gpu==1.6.0`
+
+In addition, CUDA 9.0 and cuDNN 7 have been used.
+
 ## Reference
 If you make advantage of the GAT model in your research, please cite the following in your manuscript:
 
@@ -33,8 +44,8 @@ If you make advantage of the GAT model in your research, please cite the followi
 ```
 
 You may also be interested in the following unofficial ports of the GAT model:
-- [keras-gat](https://github.com/danielegrattarola/keras-gat), currently under development by [Daniele Grattarola](https://github.com/danielegrattarola);
-- [pyGAT](https://github.com/Diego999/pyGAT), currently under development by [Diego Antognini](https://github.com/Diego999).
+- \[Keras\] [keras-gat](https://github.com/danielegrattarola/keras-gat), currently under development by [Daniele Grattarola](https://github.com/danielegrattarola);
+- \[PyTorch\] [pyGAT](https://github.com/Diego999/pyGAT), currently under development by [Diego Antognini](https://github.com/Diego999).
 
 ## License
 MIT
