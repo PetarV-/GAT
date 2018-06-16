@@ -95,6 +95,33 @@ def load_data(dataset_str): # {'pubmed', 'citeseer', 'cora'}
 
     return adj, features, y_train, y_val, y_test, train_mask, val_mask, test_mask
 
+def load_random_data(size):
+
+    adj = sp.random(size, size, density=0.002) # density similar to cora
+    features = sp.random(size, 1000, density=0.015)
+    int_labels = np.random.randint(7, size=(size))
+    labels = np.zeros((size, 7)) # Nx7
+    labels[np.arange(size), int_labels] = 1
+
+    train_mask = np.zeros((size,)).astype(bool)
+    train_mask[np.arange(size)[0:int(size/2)]] = 1
+
+    val_mask = np.zeros((size,)).astype(bool)
+    val_mask[np.arange(size)[int(size/2):]] = 1
+
+    test_mask = np.zeros((size,)).astype(bool)
+    test_mask[np.arange(size)[int(size/2):]] = 1
+
+    y_train = np.zeros(labels.shape)
+    y_val = np.zeros(labels.shape)
+    y_test = np.zeros(labels.shape)
+    y_train[train_mask, :] = labels[train_mask, :]
+    y_val[val_mask, :] = labels[val_mask, :]
+    y_test[test_mask, :] = labels[test_mask, :]
+  
+    # sparse NxN, sparse NxF, norm NxC, ..., norm Nx1, ...
+    return adj, features, y_train, y_val, y_test, train_mask, val_mask, test_mask
+
 def sparse_to_tuple(sparse_mx):
     """Convert sparse matrix to tuple representation."""
     def to_tuple(mx):
@@ -149,3 +176,13 @@ def preprocess_adj(adj):
     adj_normalized = normalize_adj(adj + sp.eye(adj.shape[0]))
     return sparse_to_tuple(adj_normalized)
 
+def preprocess_adj_bias(adj):
+    num_nodes = adj.shape[0]
+    adj = adj + sp.eye(num_nodes)  # self-loop
+    adj[adj > 0.0] = 1.0
+    if not sp.isspmatrix_coo(adj):
+        adj = adj.tocoo()
+    adj = adj.astype(np.float32)
+    indices = np.vstack((adj.col, adj.row)).transpose()  # This is where I made a mistake, I used (adj.row, adj.col) instead
+    # return tf.SparseTensor(indices=indices, values=adj.data, dense_shape=adj.shape)
+    return indices, adj.data, adj.shape
