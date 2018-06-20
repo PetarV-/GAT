@@ -19,10 +19,9 @@ Finally, `execute_cora.py` puts all of the above together and may be used to exe
 
 ## Sparse version
 An experimental sparse version is also available, working only when the batch size is equal to 1.
-The sparse model can be found at:
-- `models/sp_gat.py`
+The sparse model may be found at `models/sp_gat.py`.
 
-Run the sparse version on Cora by executing the file `execute_cora_sparse.py`.
+You may execute a full training run of the sparse model on Cora through `execute_cora_sparse.py`.
 
 ## Dependencies
 
