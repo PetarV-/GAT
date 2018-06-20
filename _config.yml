@@ -4,7 +4,7 @@ tagline: Author, Coauthor
 # (the "/" is important)
 baseurl: "/GAT"
 # arXiv ID (as in "https://arxiv.org/abs/[arXiv id]")
-arxiv: "https://arxiv.org/abs/1710.10903"
+arxiv: "1710.10903"
 repo:  "https://github.com/PetarV-/GAT"
 
 author:
