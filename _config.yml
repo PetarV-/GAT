@@ -2,10 +2,10 @@ title: Paper Title
 tagline: Author, Coauthor
 # When building locally, put an empty string. Otherwise, put "/your-repo-name"
 # (the "/" is important)
-baseurl: "/mila-paper-webpage"
+baseurl: "/GAT"
 # arXiv ID (as in "https://arxiv.org/abs/[arXiv id]")
-arxiv: ""
-repo:  "https://github.com/mila-udem/mila-paper-webpage"
+arxiv: "https://arxiv.org/abs/1710.10903"
+repo:  "https://github.com/PetarV-/GAT"
 
 author:
   name: Contact name
