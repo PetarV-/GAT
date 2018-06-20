@@ -1,0 +1,15 @@
+title: Paper Title
+tagline: Author, Coauthor
+# When building locally, put an empty string. Otherwise, put "/your-repo-name"
+# (the "/" is important)
+baseurl: "/mila-paper-webpage"
+# arXiv ID (as in "https://arxiv.org/abs/[arXiv id]")
+arxiv: ""
+repo:  "https://github.com/mila-udem/mila-paper-webpage"
+
+author:
+  name: Contact name
+  url: "https://google.com"
+
+# Leave this as is
+markdown: kramdown
