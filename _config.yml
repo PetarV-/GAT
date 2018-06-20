@@ -1,5 +1,5 @@
-title: Paper Title
-tagline: Author, Coauthor
+title: Graph Attention Networks
+tagline: Petar Veličković, Guillem Cucurull, Arantxa Casanova, Adriana Romero, Pietro Liò and Yoshua Bengio
 # When building locally, put an empty string. Otherwise, put "/your-repo-name"
 # (the "/" is important)
 baseurl: "/GAT"
@@ -8,8 +8,8 @@ arxiv: "1710.10903"
 repo:  "https://github.com/PetarV-/GAT"
 
 author:
-  name: Contact name
-  url: "https://google.com"
+  name: Petar Veličković
+  url: "https://www.cst.cam.ac.uk/~pv273"
 
 # Leave this as is
 markdown: kramdown
