@@ -17,6 +17,13 @@ Here we provide the implementation of a Graph Attention Network (GAT) layer in T
 
 Finally, `execute_cora.py` puts all of the above together and may be used to execute a full training run on Cora.
 
+## Sparse version
+An experimental sparse version is also available, working only when the batch size is equal to 1.
+The sparse model can be found at:
+- `models/sp_gat.py`
+
+Run the sparse version on Cora by executing the file `execute_cora_sparse.py`.
+
 ## Dependencies
 
 The script has been tested running under Python 3.5.2, with the following packages installed (along with their dependencies):

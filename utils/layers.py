@@ -45,7 +45,14 @@ def sp_attn_head(seq, out_sz, adj_mat, activation, nb_nodes, in_drop=0.0, coef_d
         # simplest self-attention possible
         f_1 = tf.layers.conv1d(seq_fts, 1, 1)
         f_2 = tf.layers.conv1d(seq_fts, 1, 1)
-        logits = tf.sparse_add(adj_mat * f_1, adj_mat * tf.transpose(f_2, [0, 2, 1]))
+        
+        f_1 = tf.reshape(f_1, (nb_nodes, 1))
+        f_2 = tf.reshape(f_2, (nb_nodes, 1))
+
+        f_1 = adj_mat*f_1
+        f_2 = adj_mat * tf.transpose(f_2, [1,0])
+
+        logits = tf.sparse_add(f_1, f_2)
         lrelu = tf.SparseTensor(indices=logits.indices, 
                 values=tf.nn.leaky_relu(logits.values), 
                 dense_shape=logits.dense_shape)
