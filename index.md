@@ -17,7 +17,7 @@ Here we will present our ICLR 2018 work on [Graph Attention Networks](https://ar
 
 We can think of graphs as encoding a form of _irregular spatial structure_---and therefore, it would be highly appropriate if we could somehow generalise the **convolutional** operator (as used in CNNs) to operate on arbitrary graphs!
 
-CNNs are a major workforce when it comes to working with image data. They exploit the fact that images have a highly rigid and regular connectivity pattern (each pixel "connected" to its eight neighbouring pixels), making such an operator trivial to deploy (as a small kernel matrix which is slided across the image).
+CNNs are a major workforce when it comes to working with image data. They exploit the fact that images have a highly rigid and regular connectivity pattern (each pixel "connected" to its eight neighbouring pixels), making such an operator trivial to deploy (as a small kernel matrix which is slid across the image).
 
 | ![](https://camo.githubusercontent.com/3309220c48ab22c9a5dfe7656c3f1639b6b1755d/68747470733a2f2f7777772e64726f70626f782e636f6d2f732f6e3134713930677a386138726278622f32645f636f6e766f6c7574696f6e2e706e673f7261773d31) | 
 | :-------------------------: |
@@ -164,5 +164,5 @@ If you make advantage of the GAT model in your research, please cite the followi
 
 ---
 
-[^1]: In general, the adjacency matrix may be weighted, contain edges of different types, or the edges may even have features of their own. We do not consider these cases for simplicity, but the GAT model may be trivially extended to handle them, as was done by EAGCN ([Shang _et al._, 2018](https://arxiv.org/abs/1802.04944)).
+[^1]: In general, the adjacency matrix may be weighted, contain edges of different types, or the edges may even have features of their own. We do not consider these cases for simplicity, but the GAT model may be trivially extended to handle them, as was done by EAGCN ([Shang _et al._, 2018](https://arxiv.org/abs/1802.04944v1)).
 [^2]: A notable exception is the MoNet framework ([Monti _et al._, 2017](https://arxiv.org/abs/1611.08402)) which our work can be considered an instance of. However, in all of the experiments presented in this paper, the weights were implicitly specified based on the graph's structural properties, meaning that two nodes with same local topologies would always necessarily receive the same (learned) weighting---thus still violating one of the desirable properties for a graph convolution.
