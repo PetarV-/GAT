@@ -7,7 +7,7 @@ title: {{ site.name }}
 
 A multitude of important real-world datasets come together with some form of graph structure: social networks, citation networks, protein-protein interactions, brain connectome data, etc. Extending neural networks to be able to properly deal with this kind of data is therefore a very important direction for machine learning research, but one that has received comparatively rather low levels of attention until very recently.
 
-| ![](assets/graphs.png) | 
+| ![](https://www.dropbox.com/s/uip789ds97jvoak/graphs.png?raw=1) | 
 | :-------------------------: |
 | *Motivating examples of graph-structured inputs: molecular networks, transportation networks, social networks and brain connectome networks.* | 
 
@@ -117,7 +117,7 @@ Following the publication of the GAT paper, we have been delighted to witness (a
 
 In this work (done in collaboration with the University of Cambridge Department of Psychiatry and the Montréal Neurological Institute), we have considered the task of _cortical mesh segmentation_ (predicting functional regions for locations on a human brain mesh). To do this, we have leveraged functional MRI data from the Human Connectome Project (HCP). We found that graph convolutional methods (such as GCNs and GATs) are capable of setting state-of-the-art results, exploiting the underlying structure of a brain mesh better than all prior approaches, enabling more informed decisions.
 
-| ![](assets/parcellation.png) |
+| ![](https://www.dropbox.com/s/f4362wl6uxpyj4d/parcellation.png?raw=1) |
 | :-------------------------: |
 | *Area parcellation qualitative results for several methods on a test subject. The approach of [Jakobsen et al. (2016)](https://www.ncbi.nlm.nih.gov/pubmed/27693796) is the prior state-of-the-art.* |
 
@@ -129,7 +129,7 @@ Antibodies are a critical part of the immune system, having the function of dire
 
 In this work, we build on Parapred, the previous state of the art approach of [Liberis _et al._ (2018)](https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/bty305/4972995), substituting its convolutional and recurrent layers with à trous convolutional and attentional layers, respectively. These layers have been shown to perform more favourably, and allowed us to, for the first time, positively exploit antigen data. We do this through _cross-modal attention_, allowing amino acids of the antibody to attend over the amino acids of the antigen (which could be seen as a GAT-like model applied to a bipartite antibody-antigen graph). This allowed us to new state-of-the-art results on this task, along with obtaining insightful interpretations about the model's mechanism of action.
 
-| ![](assets/try2.png) | ![](assets/agvis.png) |
+| ![](https://www.dropbox.com/s/hkgy68zjbh8afdi/try2.png?raw=1) | ![](https://www.dropbox.com/s/7zo2co53iaw6ifp/agvis.png?raw=1) |
 | :-------------------------: |
 | *Antibody amino acid binding probabilities to the antigen (in gold) assigned by our model for a test antibody-antigen complex. Warmer colours indicate higher probabilities.* | *Normalised antigen attention coefficients for a single (binding) antibody amino acid (in red). Warmer colours indicate higher coefficients.* |
 
