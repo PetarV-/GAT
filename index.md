@@ -11,7 +11,7 @@ A multitude of important real-world datasets come together with some form of gra
 | :-------------------------: |
 | *Motivating examples of graph-structured inputs: molecular networks, transportation networks, social networks and brain connectome networks.* | 
 
-Here we will present our ICLR 2018 work on [Graph Attention Networks](https://arxiv.org/abs/1710.10903) (GATs), novel neural network architectures that operate on graph-structured data, leveraging masked self-attentional layers ([Vaswani _et al._, 2017](https://arxiv.org/abs/1706.03762)) to address the shortcomings of prior methods based on graph convolutions or their approximations (including, but not limited to: [Bruna _et al._, 2014](https://arxiv.org/abs/1312.6203); [Duvenaud _et al._, 2015](https://arxiv.org/abs/1509.09292); [Li _et al._, 2016](https://arxiv.org/abs/1511.05493); [Defferrard _et al._, 2016](https://arxiv.org/abs/1606.09375); [Kipf and Welling, 2017](https://arxiv.org/abs/1609.02907); [Monti _et al._, 2017](https://arxiv.org/abs/1611.08402); [Hamilton _et al._, 2017](https://arxiv.org/abs/1706.02216)).
+Here we will present our ICLR 2018 work on [Graph Attention Networks](https://arxiv.org/abs/1710.10903) (GATs), novel neural network architectures that operate on graph-structured data, leveraging masked self-attentional layers ([Vaswani _et al._, 2017](https://arxiv.org/abs/1706.03762)) to address the shortcomings of prior methods based on graph convolutions or their approximations (including, but not limited to: [Bruna _et al._, 2014](https://arxiv.org/abs/1312.6203); [Duvenaud _et al._, 2015](https://arxiv.org/abs/1509.09292); [Li _et al._, 2016](https://arxiv.org/abs/1511.05493); [Defferrard _et al._, 2016](https://arxiv.org/abs/1606.09375); [Gilmer _et al._, 2017](https://arxiv.org/abs/1704.01212); [Kipf and Welling, 2017](https://arxiv.org/abs/1609.02907); [Monti _et al._, 2017](https://arxiv.org/abs/1611.08402); [Hamilton _et al._, 2017](https://arxiv.org/abs/1706.02216)).
 
 # Motivation for graph convolutions
 
@@ -70,9 +70,25 @@ $$
 \alpha_{ij} = \frac{\exp(e_{ij})}{\sum_{k\in\mathcal{N}_i}\exp(e_{ik})}
 $$
 
-With the setup of the preceding section, this fully specifies a [Graph Attention Network](https://arxiv.org/abs/1710.10903) (GAT) layer!
-
 Our framework is agnostic to the choice of attentional mechanism \\(a\\): in our experiments, we employed a simple single-layer neural network. The parameters of the mechanism are trained jointly with the rest of the network in an end-to-end fashion.
+
+## Regularisation
+
+To stabilise the learning process of self-attention, we have found _multi-head attention_ to be very beneficial (as was the case in [Vaswani _et al._, 2017](https://arxiv.org/abs/1706.03762)). Namely, the operations of the layer are independently replicated \\(K\\) times (each replica with different parameters), and outputs are featurewise aggregated (typically by concatenating or adding).
+
+$$
+\vec{h}'_i = {\LARGE \|}_{k=1}^K \sigma\left(\sum_{j\in\mathcal{N}_i}\alpha_{ij}^k{\bf W}^k\vec{h}_j\right)
+$$
+
+where \\(\alpha_{ij}^k\\) are the attention coefficients derived by the \\(k\\)-th replica, and \\({\bf W}^k\\) the weight matrix specifying the linear transformation of the \\(k\\)-th replica.
+
+With the setup of the preceding sections, this fully specifies a [Graph Attention Network](https://arxiv.org/abs/1710.10903) (GAT) layer!
+
+| ![](http://www.cl.cam.ac.uk/~pv273/images/gat.jpg) |
+| :-------------------------: |
+| *A GAT layer with multi-head attention. Every neighbour \\(i\\) of node \\(1\\) sends its own vector of attentional coefficients, \\(\vec{\alpha}\_{1i}\\) one per each attention head \\(\alpha\_{1i}^k\\). These are used to compute \\(K\\) separate linear combinations of neighbours' features \\(\vec{h}\_i\\), which are then aggregated (typically by concatenation or averaging) to obtain the next-level features of node \\(1\\), \\(\vec{h}'\_1\\).* |
+
+Furthermore, we have found that applying _dropout_ ([Srivastava _et al._, 2014](http://jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf)) to the attentional coefficients \\(\alpha_{ij}\\) was a highly beneficial regulariser, especially for small training datasets. This effectively exposes nodes to _stochastically sampled neighbourhoods_ during training, in a manner reminiscent of the (concurrently published) FastGCN method ([Chen _et al._, 2018](https://arxiv.org/abs/1801.10247)).
 
 ## Properties
 
@@ -92,22 +108,6 @@ These theoretical properties have been further validated within [our paper](http
 | ![](http://www.cl.cam.ac.uk/~pv273/images/gat_tsne.jpg) |
 | :-------------------------: |
 | *t-SNE + Attentional coefficients of a pre-trained GAT model, visualised on the Cora citation network dataset.* |
-
-## Regularisation
-
-To stabilise the learning process of self-attention, we have found _multi-head attention_ to be very beneficial (as was the case in [Vaswani _et al._, 2017](https://arxiv.org/abs/1706.03762)). Namely, the operations of the layer are independently replicated \\(K\\) times (each replica with different parameters), and outputs are featurewise aggregated (typically by concatenating or adding).
-
-$$
-\vec{h}'_i = {\LARGE \|}_{k=1}^K \sigma\left(\sum_{j\in\mathcal{N}_i}\alpha_{ij}^k{\bf W}^k\vec{h}_j\right)
-$$
-
-where \\(\alpha_{ij}^k\\) are the attention coefficients derived by the \\(k\\)-th replica, and \\({\bf W}^k\\) the weight matrix specifying the linear transformation of the \\(k\\)-th replica.
-
-| ![](http://www.cl.cam.ac.uk/~pv273/images/gat.jpg) |
-| :-------------------------: |
-| *A GAT layer with multi-head attention. Every neighbour \\(i\\) of node \\(1\\) sends its own vector of attentional coefficients, \\(\vec{\alpha}\_{1i}\\) one per each attention head \\(\alpha\_{1i}^k\\). These are used to compute \\(K\\) separate linear combinations of neighbours' features \\(\vec{h}\_i\\), which are then aggregated (typically by concatenation or averaging) to obtain the next-level features of node \\(1\\), \\(\vec{h}'\_1\\).* |
-
-Furthermore, we have found that applying _dropout_ ([Srivastava _et al._, 2014](http://jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf)) to the attentional coefficients \\(\alpha_{ij}\\) was a highly beneficial regulariser, especially for small training datasets. This effectively exposes nodes to _stochastically sampled neighbourhoods_ during training, in a manner reminiscent of the (concurrently published) FastGCN method ([Chen _et al._, 2018](https://arxiv.org/abs/1801.10247)).
 
 # Applications
 
@@ -161,6 +161,10 @@ If you make advantage of the GAT model in your research, please cite the followi
   url={https://openreview.net/forum?id=rJXMpikCZ},
 }
 ```
+
+## Acknowledgements
+
+We would like to thank Andreea Deac, Edgar Liberis and Thomas Kipf for their helpful feedback on prior iterations of this blog post!
 
 ---
 
