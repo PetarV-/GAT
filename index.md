@@ -137,11 +137,12 @@ For more details, please refer to our ICML WCB publication ([Deac _et al._, 2018
 
 ## Additional related work
 
-Finally, we outline three interesting relevant pieces of work that leverage or further build on GAT(-like) models. The list is by no means exhaustive!
+Finally, we outline four interesting relevant pieces of work that leverage or further build on GAT(-like) models. The list is by no means exhaustive!
 
 * _Gated Attention Networks_ (GaAN) ([Zhang _et al._, 2018](https://arxiv.org/abs/1803.07294)), where gating mechanisms are inserted into the multi-head attention system of GATs, in order to give different value to different heads' computations. Several challenging baselines are outperformed on both inductive node classification tasks (Reddit, PPI) and a traffic speed forecasting task (METR-LA).
 * _DeepInf_ ([Qiu _et al._, 2018](https://www.haoma.io/pdf/deepinf.pdf)), leveraging graph convolutional layers to modelling _influence locality_ (predicting whether a node will perform a particular action, given the action statuses of its \\(r\\)-hop neighbours at a particular point in time). Notably, this is the first study where attentional mechanisms (GAT) appear to be necessary for surpassing baseline approaches (such as SVMs or logistic regression), given the heterogeneity of the edges. Furthermore, a very nice qualitative analysis is performed on the action mechanism of the various attention heads employed by the GAT model.
 * _Attention Solves Your TSP_ ([Kool and Welling, 2018](https://arxiv.org/abs/1803.08475)), where GAT-like layers (using the Transformer-style attention mechanism) have been successfully applied to solving _combinatorial optimisation_ problems, specifically the Travelling Salesman Problem (TSP).
+* _PeerNets_ ([Svoboda _et al._, 2018](https://arxiv.org/abs/1806.00088)), which augment a standard convolutional neural network architecture for image classification with GAT-like layers over a graph of "neighbouring" feature maps from related images in a training dataset. This makes the learnt feature maps substantially more robust, providing a strong defence against a variety of adversarial attacks while sacrificing almost no test accuracy.
 
 # Conclusions
 
