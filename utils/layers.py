@@ -29,7 +29,7 @@ def attn_head(seq, out_sz, bias_mat, activation, in_drop=0.0, coef_drop=0.0, res
             if seq.shape[-1] != ret.shape[-1]:
                 ret = ret + conv1d(seq, ret.shape[-1], 1) # activation
             else:
-                seq_fts = ret + seq
+                ret = ret + seq
 
         return activation(ret)  # activation
 
@@ -80,7 +80,7 @@ def sp_attn_head(seq, out_sz, adj_mat, activation, nb_nodes, in_drop=0.0, coef_d
             if seq.shape[-1] != ret.shape[-1]:
                 ret = ret + conv1d(seq, ret.shape[-1], 1) # activation
             else:
-                seq_fts = ret + seq
+                ret = ret + seq
 
         return activation(ret)  # activation
 
