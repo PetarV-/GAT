@@ -84,7 +84,7 @@ where \\(\alpha_{ij}^k\\) are the attention coefficients derived by the \\(k\\)-
 
 With the setup of the preceding sections, this fully specifies a [Graph Attention Network](https://arxiv.org/abs/1710.10903) (GAT) layer!
 
-| ![](http://www.cl.cam.ac.uk/~pv273/images/gat.jpg) |
+| ![](https://camo.githubusercontent.com/4fe1a90e67d17a2330d7cfcddc930d5f7501750c/68747470733a2f2f7777772e64726f70626f782e636f6d2f732f71327a703170366b37396a6a6431352f6761745f6c617965722e706e673f7261773d31) |
 | :-------------------------: |
 | *A GAT layer with multi-head attention. Every neighbour \\(i\\) of node \\(1\\) sends its own vector of attentional coefficients, \\(\vec{\alpha}\_{1i}\\) one per each attention head \\(\alpha\_{1i}^k\\). These are used to compute \\(K\\) separate linear combinations of neighbours' features \\(\vec{h}\_i\\), which are then aggregated (typically by concatenation or averaging) to obtain the next-level features of node \\(1\\), \\(\vec{h}'\_1\\).* |
 
@@ -105,7 +105,7 @@ To the best of our knowledge, this is the _first_ proposed graph convolution lay
 
 These theoretical properties have been further validated within [our paper](https://arxiv.org/abs/1710.10903) by matching or exceeding state-of-the-art performance across four challenging transductive and inductive node classification benchmarks (Cora, Citeseer, PubMed and PPI). t-SNE visualisations on the Cora dataset further demonstrate that our model is capable of effectively discriminating between its target classes.
 
-| ![](http://www.cl.cam.ac.uk/~pv273/images/gat_tsne.jpg) |
+| ![](https://camo.githubusercontent.com/a1ad7645e034ba75ab4d3380a631fdfc00783553/687474703a2f2f7777772e636c2e63616d2e61632e756b2f7e70763237332f696d616765732f6761745f74736e652e6a7067) |
 | :-------------------------: |
 | *t-SNE + Attentional coefficients of a pre-trained GAT model, visualised on the Cora citation network dataset.* |
 
