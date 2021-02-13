@@ -49,8 +49,7 @@ If you make advantage of the GAT model in your research, please cite the followi
 }
 ```
 
-For getting started with GATs, as well as graph represesntation learning in general, we **highly** recommend the following reepository (in PyTorch) by [Aleksa Gordić](https://github.com/gordicaleksa): [pytorch-GAT](https://github.com/gordicaleksa/pytorch-GAT)
-It ships with an inductive (PPI) example as well.
+For getting started with GATs, as well as graph represesntation learning in general, we **highly** recommend the [pytorch-GAT](https://github.com/gordicaleksa/pytorch-GAT) repository by [Aleksa Gordić](https://github.com/gordicaleksa). It ships with an inductive (PPI) example as well.
 
 GAT is a popular method for graph representation learning, with optimised implementations featuring within virtually all standard GRL libraries:
 - \[PyTorch\] [PyTorch Geometric](https://pytorch-geometric.readthedocs.io/en/latest/)
