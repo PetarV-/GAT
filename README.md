@@ -51,13 +51,13 @@ If you make advantage of the GAT model in your research, please cite the followi
 
 For getting started with GATs, as well as graph represesntation learning in general, we **highly** recommend the [pytorch-GAT](https://github.com/gordicaleksa/pytorch-GAT) repository by [Aleksa Gordić](https://github.com/gordicaleksa). It ships with an inductive (PPI) example as well.
 
-GAT is a popular method for graph representation learning, with optimised implementations featuring within virtually all standard GRL libraries:
+GAT is a popular method for graph representation learning, with optimised implementations within virtually all standard GRL libraries:
 - \[PyTorch\] [PyTorch Geometric](https://pytorch-geometric.readthedocs.io/en/latest/)
 - \[PyTorch/TensorFlow\] [Deep Graph Library](https://www.dgl.ai/)
 - \[TensorFlow\] [Spektral](https://graphneural.network/)
 - \[JAX\] [jraph](https://github.com/deepmind/jraph)
 
-We recommend using either one of those (depending on your favoured framework), as their implementations have been more readily battle-teested.
+We recommend using either one of those (depending on your favoured framework), as their implementations have been more readily battle-tested.
 
 Early on post-release, two unofficial ports of the GAT model to various frameworks quickly surfaced. To honour the effort of their developers as early adopters of the GAT layer, we leave pointers to them here.
 - \[Keras\] [keras-gat](https://github.com/danielegrattarola/keras-gat), developed by [Daniele Grattarola](https://github.com/danielegrattarola);
