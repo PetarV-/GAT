@@ -3,7 +3,7 @@ Graph Attention Networks (Veličković *et al.*, ICLR 2018): [https://arxiv.org/
 
 GAT layer            |  t-SNE + Attention coefficients on Cora
 :-------------------------:|:-------------------------:
-![](https://camo.githubusercontent.com/4fe1a90e67d17a2330d7cfcddc930d5f7501750c/68747470733a2f2f7777772e64726f70626f782e636f6d2f732f71327a703170366b37396a6a6431352f6761745f6c617965722e706e673f7261773d31)  |  ![](https://camo.githubusercontent.com/a1ad7645e034ba75ab4d3380a631fdfc00783553/687474703a2f2f7777772e636c2e63616d2e61632e756b2f7e70763237332f696d616765732f6761745f74736e652e6a7067)
+![](https://camo.githubusercontent.com/4fe1a90e67d17a2330d7cfcddc930d5f7501750c/68747470733a2f2f7777772e64726f70626f782e636f6d2f732f71327a703170366b37396a6a6431352f6761745f6c617965722e706e673f7261773d31)  |  ![](https://raw.githubusercontent.com/PetarV-/GAT/gh-pages/assets/t-sne.png)
 
 ## Overview
 Here we provide the implementation of a Graph Attention Network (GAT) layer in TensorFlow, along with a minimal execution example (on the Cora dataset). The repository is organised as follows:
@@ -49,9 +49,19 @@ If you make advantage of the GAT model in your research, please cite the followi
 }
 ```
 
-You may also be interested in the following unofficial ports of the GAT model:
-- \[Keras\] [keras-gat](https://github.com/danielegrattarola/keras-gat), currently under development by [Daniele Grattarola](https://github.com/danielegrattarola);
-- \[PyTorch\] [pyGAT](https://github.com/Diego999/pyGAT), currently under development by [Diego Antognini](https://github.com/Diego999).
+For getting started with GATs, as well as graph represesntation learning in general, we **highly** recommend the following reepository (in PyTorch) by [Aleksa Gordić](https://github.com/gordicaleksa): [pytorch-GAT](https://github.com/gordicaleksa/pytorch-GAT)
+It ships with an inductive (PPI) example as well.
+
+GAT is a popular method for graph representation learning, with optimised implementations featuring within virtually all standard GRL libraries:
+- \[PyTorch\] [PyTorch Geometric](https://pytorch-geometric.readthedocs.io/en/latest/)
+- \[PyTorch/TensorFlow\] [Deep Graph Library](https://www.dgl.ai/)
+- \[TensorFlow\] [Spektral] (https://graphneural.network/)
+- \[JAX\] [jraph] (https://github.com/deepmind/jraph)
+We recommend using either one of those (depending on your favoured framework), as their implementations have been more readily battle-teested.
+
+Early on post-release, two unofficial ports of the GAT model to various frameworks quickly surfaced. To honour the effort of their developers as early adopters of the GAT layer, we leave pointers to them here.
+- \[Keras\] [keras-gat](https://github.com/danielegrattarola/keras-gat), developed by [Daniele Grattarola](https://github.com/danielegrattarola);
+- \[PyTorch\] [pyGAT](https://github.com/Diego999/pyGAT), developed by [Diego Antognini](https://github.com/Diego999).
 
 ## License
 MIT
