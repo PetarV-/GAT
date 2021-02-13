@@ -56,6 +56,7 @@ GAT is a popular method for graph representation learning, with optimised implem
 - \[PyTorch/TensorFlow\] [Deep Graph Library](https://www.dgl.ai/)
 - \[TensorFlow\] [Spektral](https://graphneural.network/)
 - \[JAX\] [jraph](https://github.com/deepmind/jraph)
+
 We recommend using either one of those (depending on your favoured framework), as their implementations have been more readily battle-teested.
 
 Early on post-release, two unofficial ports of the GAT model to various frameworks quickly surfaced. To honour the effort of their developers as early adopters of the GAT layer, we leave pointers to them here.
