@@ -105,7 +105,7 @@ To the best of our knowledge, this is the _first_ proposed graph convolution lay
 
 These theoretical properties have been further validated within [our paper](https://arxiv.org/abs/1710.10903) by matching or exceeding state-of-the-art performance across four challenging transductive and inductive node classification benchmarks (Cora, Citeseer, PubMed and PPI). t-SNE visualisations on the Cora dataset further demonstrate that our model is capable of effectively discriminating between its target classes.
 
-| ![](https://camo.githubusercontent.com/a1ad7645e034ba75ab4d3380a631fdfc00783553/687474703a2f2f7777772e636c2e63616d2e61632e756b2f7e70763237332f696d616765732f6761745f74736e652e6a7067) |
+| ![](https://raw.githubusercontent.com/PetarV-/GAT/gh-pages/assets/t-sne.png) |
 | :-------------------------: |
 | *t-SNE + Attentional coefficients of a pre-trained GAT model, visualised on the Cora citation network dataset.* |
 
