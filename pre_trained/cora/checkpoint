@@ -1,2 +1,0 @@
-model_checkpoint_path: "mod_cora.ckpt"
-all_model_checkpoint_paths: "mod_cora.ckpt"
